@@ -39,6 +39,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return self.Meta.model.objects.create_user(**validated_data)
 
 
+class LogoutSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+
+
 class TokenWithUsernameSerializer(TokenObtainPairSerializer):
     """Стандартный логин SimpleJWT + username в payload, чтобы фронт показал его в навбаре."""
 

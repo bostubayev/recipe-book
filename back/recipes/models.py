@@ -48,7 +48,7 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
-    text = models.TextField(verbose_name='Текст')
+    text = models.TextField(max_length=1000, verbose_name='Текст')
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,

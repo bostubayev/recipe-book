@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from accounts.serializers import RegistrationSerializer
+from accounts.serializers import LogoutSerializer, RegistrationSerializer
 
 
 class RegistrationView(generics.CreateAPIView):
@@ -20,12 +20,11 @@ class LogoutView(views.APIView):
     authentication_classes = []
 
     def post(self, request, *args, **kwargs):
-        refresh = request.data.get('refresh')
-        if not refresh:
-            return Response({'refresh': ['Обязательное поле.']}, status=status.HTTP_400_BAD_REQUEST)
+        serializer = LogoutSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
         try:
-            RefreshToken(refresh).blacklist()
+            RefreshToken(serializer.validated_data['refresh']).blacklist()
         except TokenError:
             return Response({'detail': 'Токен недействителен или уже отозван'}, status=status.HTTP_400_BAD_REQUEST)
 

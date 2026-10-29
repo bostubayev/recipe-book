@@ -185,6 +185,25 @@ class RecipeApiTests(BaseApiTestCase):
         self.assertTrue(storage.exists(fixture_image))
 
 
+    def test_model_level_delete_removes_image(self):
+        # так удаляет админка: без ViewSet, напрямую через модель
+        storage, name = self.recipe.image.storage, self.recipe.image.name
+        self.recipe.delete()
+        self.assertFalse(storage.exists(name))
+
+    def test_deleting_user_removes_recipe_images(self):
+        storage, name = self.recipe.image.storage, self.recipe.image.name
+        self.author.delete()
+        self.assertFalse(storage.exists(name))
+
+    def test_model_level_image_replace_removes_old_file(self):
+        storage, old_name = self.recipe.image.storage, self.recipe.image.name
+        self.recipe.image = make_image('new.png')
+        self.recipe.save()
+        self.assertFalse(storage.exists(old_name))
+        self.assertTrue(storage.exists(self.recipe.image.name))
+
+
 class CommentApiTests(BaseApiTestCase):
     def setUp(self):
         super().setUp()
@@ -217,6 +236,12 @@ class CommentApiTests(BaseApiTestCase):
     def test_create_blank_text(self):
         self.auth(self.other)
         response = self.client.post(self.url, {'text': '   '})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn('text', response.data)
+
+    def test_create_too_long_text(self):
+        self.auth(self.other)
+        response = self.client.post(self.url, {'text': 'а' * 1001})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertIn('text', response.data)
 

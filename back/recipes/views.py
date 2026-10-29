@@ -26,21 +26,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
         return self.serializer_class
 
+    # файлы фото при замене и удалении чистят сигналы в recipes/signals.py
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
-
-    def perform_update(self, serializer):
-        old_image = serializer.instance.image.name
-        recipe = serializer.save()
-
-        # загрузили новое фото - старый файл больше не нужен
-        if recipe.image.name != old_image:
-            Recipe.delete_image_file(old_image)
-
-    def perform_destroy(self, instance):
-        image = instance.image.name
-        instance.delete()
-        Recipe.delete_image_file(image)
 
     # комментировать может любой залогиненный, а не только автор рецепта,
     # поэтому IsAuthorOrReadOnly здесь не подключаем

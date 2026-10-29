@@ -77,3 +77,7 @@ class AuthApiTests(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer expired.or.broken')
         response = self.client.post('/accounts/logout/', {'refresh': refresh})
         self.assertEqual(response.status_code, status.HTTP_205_RESET_CONTENT)
+
+    def test_logout_with_non_object_body(self):
+        response = self.client.post('/accounts/logout/', [], format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
