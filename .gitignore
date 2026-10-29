@@ -1,0 +1,12 @@
+__pycache__/
+venv/
+.venv/
+.idea/
+db.sqlite3
+back/media/recipes/
+
+# локальные файлы, в репозиторий не нужны
+.postman/
+postman/
+finishedwork/
+ТЗ.txt

@@ -1,0 +1,184 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$5CHuMohBoIFOYoMQKloI0E$PZslaxmMvR2aAvZKxWc6TAPgOPM8xQK1GG73rL7hqm4=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Админ",
+      "last_name": "",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-10-19T10:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$uTskWxi60xYHHmDXmei7FZ$BhLVeem8RW1GKHzhOYTLr8qZwTNvIvTi9ksESzyash8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "almas",
+      "first_name": "Алмас",
+      "last_name": "Сериков",
+      "email": "almas@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-10-19T10:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ciB1ewNWMZHmz2HHBVQI1p$VmTviQVlxX2KG8qxvIceDHggYHy5Maie7DS2Ow3v/gA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "aigerim",
+      "first_name": "Айгерим",
+      "last_name": "Нурланова",
+      "email": "aigerim@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-10-19T10:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+      "title": "Плов по-ташкентски",
+      "description": "Классический узбекский плов в казане: обжариваем мясо, томим зирвак с морковью и луком, затем добавляем рис и готовим на медленном огне до рассыпчатости.",
+      "ingredients": "Рис девзира - 1 кг\nБаранина - 1 кг\nМорковь жёлтая - 1 кг\nЛук - 3 шт\nЧеснок - 2 головки\nНут - 200 г\nЗира - 1 ст. л.\nСоль - по вкусу",
+      "cooking_time": 120,
+      "image": "fixtures/plov.jpg",
+      "created_at": "2026-10-20T12:00:00Z",
+      "author": 2
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+      "title": "Бешбармак",
+      "description": "Казахское национальное блюдо: отварное мясо с тонко раскатанным тестом, луком и наваристым сорпа-бульоном.",
+      "ingredients": "Конина или говядина - 1.5 кг\nМука - 500 г\nЯйцо - 1 шт\nВода - 200 мл\nЛук - 3 шт\nЧёрный перец - по вкусу\nСоль - по вкусу",
+      "cooking_time": 180,
+      "image": "fixtures/beshbarmak.jpg",
+      "created_at": "2026-10-21T15:30:00Z",
+      "author": 2
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 3,
+    "fields": {
+      "title": "Борщ",
+      "description": "Насыщенный красный борщ на говяжьем бульоне со свёклой, капустой и сметаной.",
+      "ingredients": "Говядина на кости - 600 г\nСвёкла - 2 шт\nКапуста - 300 г\nКартофель - 3 шт\nМорковь - 1 шт\nЛук - 1 шт\nТоматная паста - 2 ст. л.\nСметана - для подачи",
+      "cooking_time": 90,
+      "image": "fixtures/borsch.jpg",
+      "created_at": "2026-10-22T09:15:00Z",
+      "author": 3
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 4,
+    "fields": {
+      "title": "Сырники",
+      "description": "Пышные творожные сырники с золотистой корочкой. Подавать со сметаной или вареньем.",
+      "ingredients": "Творог 9% - 500 г\nЯйцо - 1 шт\nМука - 3 ст. л.\nСахар - 2 ст. л.\nВанильный сахар - 1 пакетик\nМасло для жарки",
+      "cooking_time": 30,
+      "image": "fixtures/syrniki.jpg",
+      "created_at": "2026-10-24T08:00:00Z",
+      "author": 3
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 5,
+    "fields": {
+      "title": "Паста карбонара",
+      "description": "Итальянская паста с беконом, желтками и пармезаном без сливок - соус получается из желтков и крахмалистой воды от пасты.",
+      "ingredients": "Спагетти - 400 г\nБекон или гуанчале - 150 г\nЖелтки - 4 шт\nПармезан - 80 г\nЧёрный перец - по вкусу",
+      "cooking_time": 25,
+      "image": "fixtures/carbonara.jpg",
+      "created_at": "2026-10-26T19:45:00Z",
+      "author": 2
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 6,
+    "fields": {
+      "title": "Баурсаки",
+      "description": "Воздушные казахские пончики из дрожжевого теста, обжаренные во фритюре. Подаются к чаю и к праздничному дастархану.",
+      "ingredients": "Мука - 1 кг\nМолоко - 500 мл\nДрожжи сухие - 11 г\nСахар - 2 ст. л.\nСоль - 1 ч. л.\nМасло для фритюра - 1 л",
+      "cooking_time": 60,
+      "image": "fixtures/baursaki.jpg",
+      "created_at": "2026-10-28T17:20:00Z",
+      "author": 3
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 1,
+    "fields": {
+      "text": "Готовила по этому рецепту - плов получился рассыпчатый, спасибо!",
+      "recipe": 1,
+      "author": 3,
+      "created_at": "2026-10-20T18:10:00Z"
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 2,
+    "fields": {
+      "text": "Нут обязательно замачивать на ночь.",
+      "recipe": 1,
+      "author": 1,
+      "created_at": "2026-10-21T10:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 3,
+    "fields": {
+      "text": "Самый настоящий бешбармак, как у бабушки.",
+      "recipe": 2,
+      "author": 3,
+      "created_at": "2026-10-22T20:00:00Z"
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 4,
+    "fields": {
+      "text": "Добавил немного чеснока в конце - стало ещё вкуснее.",
+      "recipe": 3,
+      "author": 2,
+      "created_at": "2026-10-23T13:30:00Z"
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 5,
+    "fields": {
+      "text": "Наконец-то карбонара без сливок!",
+      "recipe": 5,
+      "author": 3,
+      "created_at": "2026-10-27T09:00:00Z"
+    }
+  }
+]
